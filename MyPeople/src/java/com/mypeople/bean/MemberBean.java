@@ -5,9 +5,11 @@
  */
 package com.mypeople.bean;
 
+import com.mypeople.facade.MemberFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.ejb.EJB;
 
 /**
  *
@@ -16,6 +18,10 @@ import java.io.Serializable;
 @Named(value = "memberBean")
 @SessionScoped
 public class MemberBean implements Serializable {
+    @EJB
+    private MemberFacade memberFacade;
+    
+    
 
     /**
      * Creates a new instance of MemberBean

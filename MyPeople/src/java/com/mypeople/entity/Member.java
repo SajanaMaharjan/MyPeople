@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -25,6 +27,8 @@ public class Member implements Serializable {
     
     private String fName;
     private String lName;
+     
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
     private String street;
     private String city;
