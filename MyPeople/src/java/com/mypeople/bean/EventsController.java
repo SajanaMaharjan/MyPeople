@@ -5,6 +5,7 @@
  */
 package com.mypeople.bean;
 
+import com.mypeople.entity.Events;
 import java.io.Serializable;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -17,8 +18,8 @@ import javax.inject.Named;
 @ApplicationScoped
 public class EventsController implements Serializable{
   
-//    private Events newEvent;
-//    
+    private Events newEvent;
+    
     public void addEvent(){
         
     }
