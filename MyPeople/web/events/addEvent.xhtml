@@ -15,7 +15,17 @@ and open the template in the editor.
     <h:body>
         <ui:composition template="../template/template.xhtml">
             <ui:define name="content">
-                <h:commandButton value="Add New Event" action="#{eventsController.addEvent()}"/>
+                <h:form>
+                    <h:outputText value="Event Name "/>
+                    <h:inputText id="txtEventName" value="#{eventsController.eventName}" /><br/>
+                    <h:outputText value="Event Date "/>
+                    <h:inputText id="txtEventDate" value="#{eventsController.eventDate}" /><br/>
+                    <h:outputText value="Event Description "/>
+                    <h:inputTextarea id="txtEventDesc" rows="5" value="#{eventsController.eventDesc}"/><br/>
+                
+                    <h:commandButton value="Add New Event" action="#{eventsController.addEvent()}"/>
+                </h:form>
+                
             </ui:define>
         </ui:composition>
     </h:body>

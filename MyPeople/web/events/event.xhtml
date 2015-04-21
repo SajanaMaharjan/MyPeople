@@ -7,7 +7,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,7 +18,29 @@ and open the template in the editor.
             <ui:define name="content">
                 <h:form>
                     <h1> All Events </h1>
-                    <h:commandLink value="Add New Event" onclick="addEvent"/>
+                    <h:dataTable value="#{eventsController.eventList}" var="event">
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Event Name"/>
+                            </f:facet>
+                            <h:outputText value="#{event.eventName}"></h:outputText>                                               
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Event Date"/>
+                            </f:facet>
+                            <h:outputText value="#{event.eventDate}"></h:outputText>                                               
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Event Description"/>
+                            </f:facet>                    
+                            <h:inputText value="#{event.eventDesc}" size="4"></h:inputText> 
+                        </h:column>
+                    </h:dataTable>
+                    <h:button value="Create New Event" outcome="addEvent"/>
                 </h:form>
             </ui:define>
         </ui:composition>
