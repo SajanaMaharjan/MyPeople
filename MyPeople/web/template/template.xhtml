@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>My People</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
+        <ui:remove><h:outputStylesheet name="http://fonts.googleapis.com/css?family=Lobster" library="css" />
+        <h:outputStylesheet name="bootstrap.css" library="css" />
+        <h:outputStylesheet name="style.css" library="css" />
+        <h:outputScript name="js/jquery-2.1.3.min.js" /></ui:remove>
+    </h:head>
+    <h:body>  
+        <div class="page_wrap clearfix">
+            
+            <ui:insert name ="header">
+                <ui:include src ="/template/header.xhtml"/>
+            </ui:insert>
+            
+            <ui:insert name="content" >
+                <ui:include src="/template/content.xhtml" />
+            </ui:insert>
+        </div>
+        <ui:insert name="footer" >
+            <ui:include src="/template/footer.xhtml" />
+        </ui:insert>
+        <ui:remove><h:outputScript name="jquery.js" library="js" />
+            <h:outputScript name="scripts.js" library="js" /></ui:remove>
+    </h:body>
+</html>
