@@ -27,14 +27,16 @@ public class Events implements Serializable {
 //    @Temporal(javax.persistence.TemporalType.DATE)
     private String eventDate;
     private String eventDesc;
+    private String eventDetails;
 
     public Events(){
         
     }
-    public Events(String name, String date, String desc) {
+    public Events(String name, String date, String desc, String details) {
         this.eventName = name;
         this.eventDate = date;
         this.eventDesc = desc;
+        this.eventDetails = details;
     }
 
     public Long getId() {
@@ -67,6 +69,14 @@ public class Events implements Serializable {
 
     public void setEventDesc(String eventDesc) {
         this.eventDesc = eventDesc;
+    }
+
+    public String getEventDetails() {
+        return eventDetails;
+    }
+
+    public void setEventDetails(String eventDetails) {
+        this.eventDetails = eventDetails;
     }
 
     @Override
