@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>My people: Discussion</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/template.xhtml">	
+            <ui:define name="content">	
+                <h:form>
+                  
+                <h3>Discussion Topic</h3> <!-- discussion topic goes here-->
+                
+                 <!-- discusstion question -->
+                <p>Question: <h:outputText value="" /></p>
+              
+                <h:inputTextarea rows="3" value="" />
+                  
+                <h:commandButton value="post" />
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
