@@ -1,0 +1,24 @@
+/*
+Template Name: Professional Web2
+Coded By: Design Coder - http://www.design-coder.com/
+Design By: http://psd.tutsplus.com/tutorials/interface-tutorials/create-a-professional-web-2-0-layout/
+Licence: <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>
+*/
+
+div.wrapper .readmore a, #header li a, #footer form button{display:inline-block;}
+#header ul{margin-top:0;}
+#footer form button span{margin:0;}
+#footer p.readmore{line-height:1.4em;}
+#footer p.readmore span{padding-top:7px;}
+#teammembers a.teammember{
+	display:inline-block;/* IE 8 forces HasLayout*/
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";/* IE 8 */
+	zoom:1;/* IE 5 - 7 forces HasLayout*/
+	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);/* IE 5 - 7 */
+	filter:alpha(opacity=50);/* IE 5 - 7 */
+	}
+#teammembers a.teammember:hover{
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	filter:alpha(opacity=100);
+	}

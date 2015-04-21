@@ -6,11 +6,18 @@
     <h:head>
         <title>My People</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
-        <h:outputStylesheet name="http://fonts.googleapis.com/css?family=Lobster" library="css" />
-        <h:outputStylesheet name="bootstrap.css" library="css" />
-        <h:outputStylesheet name="style.css" library="css" />
+        <!--[if lte IE 8]><style type="text/css">@import url("styles/ie.css");</style><![endif]-->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <h:outputStylesheet name="css/homepage.css"/>
+        <h:outputStylesheet name="css/layout.css"/>        
         <h:outputScript name="js/jquery.cycle.lite.min.js" />
         <h:outputScript name="js/jquery.defaultvalue.js" />
+        <script type="text/javascript">
+            jQuery(function ($) {
+            $("#name, #email, #message").defaultvalue("Name", "Email", "Message");
+            });
+        </script>
+ 
     </h:head>
     <h:body>  
         <div class="page_wrap clearfix">
