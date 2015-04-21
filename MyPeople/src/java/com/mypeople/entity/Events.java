@@ -24,8 +24,18 @@ public class Events implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String eventName;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date eventDate;
+//    @Temporal(javax.persistence.TemporalType.DATE)
+    private String eventDate;
+    private String eventDesc;
+
+    public Events(){
+        
+    }
+    public Events(String name, String date, String desc) {
+        this.eventName = name;
+        this.eventDate = date;
+        this.eventDesc = desc;
+    }
 
     public Long getId() {
         return id;
@@ -43,12 +53,20 @@ public class Events implements Serializable {
         this.eventName = eventName;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
+    }
+
+    public String getEventDesc() {
+        return eventDesc;
+    }
+
+    public void setEventDesc(String eventDesc) {
+        this.eventDesc = eventDesc;
     }
 
     @Override
