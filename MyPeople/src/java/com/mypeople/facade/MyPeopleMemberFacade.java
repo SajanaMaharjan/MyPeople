@@ -5,7 +5,7 @@
  */
 package com.mypeople.facade;
 
-import com.mypeople.entity.Member;
+import com.mypeople.entity.MyPeopleMember;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author sajana
  */
 @Stateless
-public class MemberFacade extends AbstractFacade<Member> implements MemberFacadeLocal {
+public class MyPeopleMemberFacade extends AbstractFacade<MyPeopleMember> implements MyPeopleMemberFacadeLocal {
     @PersistenceContext(unitName = "MyPeoplePU")
     private EntityManager em;
 
@@ -24,8 +24,8 @@ public class MemberFacade extends AbstractFacade<Member> implements MemberFacade
         return em;
     }
 
-    public MemberFacade() {
-        super(Member.class);
+    public MyPeopleMemberFacade() {
+        super(MyPeopleMember.class);
     }
     
 }
