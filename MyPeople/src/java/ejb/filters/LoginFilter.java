@@ -1,6 +1,6 @@
 package ejb.filters;
 
-import com.mypeople.facade.MemberFacade;
+import com.mypeople.facade.MyPeopleMemberFacade;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.faces.context.ExternalContext;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginFilter implements Filter{
     @EJB
-    private MemberFacade user;
+    private MyPeopleMemberFacade user;
     
     @Override
     public void destroy(){}

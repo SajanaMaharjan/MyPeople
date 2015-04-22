@@ -5,7 +5,7 @@
  */
 package com.mypeople.bean;
 
-import com.mypeople.entity.Member;
+import com.mypeople.entity.MyPeopleMember;
 import java.io.IOException;
 import javax.inject.Named;
 import javax.faces.bean.SessionScoped;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 @SessionScoped
 public class LoginController {
     
-    private Member member;
+    private MyPeopleMember member;
 
     /**
      * Creates a new instance of LoginController

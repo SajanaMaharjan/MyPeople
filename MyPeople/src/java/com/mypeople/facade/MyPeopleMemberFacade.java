@@ -5,7 +5,9 @@
  */
 package com.mypeople.facade;
 
-import com.mypeople.entity.Member;
+
+import com.mypeople.entity.MyPeopleMember;
+import java.lang.reflect.Member;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -19,7 +21,7 @@ import javax.persistence.Query;
  * @author sajana
  */
 @Stateless
-public class MemberFacade extends AbstractFacade<Member> implements MemberFacadeLocal {
+public class MyPeopleMemberFacade extends AbstractFacade<MyPeopleMember> implements MyPeopleMemberFacadeLocal {
     @PersistenceContext(unitName = "MyPeoplePU")
     private EntityManager em;
 
@@ -28,11 +30,11 @@ public class MemberFacade extends AbstractFacade<Member> implements MemberFacade
         return em;
     }
 
-    public MemberFacade() {
-        super(Member.class);
+    public MyPeopleMemberFacade() {
+        super(MyPeopleMember.class);
     }
     
-     public Member findByEmail(String email) {
+     public MyPeopleMember findByEmail(String email) {
         try {
             if (email == null) {
                 email = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
@@ -41,11 +43,11 @@ public class MemberFacade extends AbstractFacade<Member> implements MemberFacade
             String jpql = "SELECT u from Member u where u.email = :email";
             Query query = getEntityManager().createQuery(jpql, Member.class);
             query.setParameter("email", email);
-            return (Member) query.getSingleResult();
+            return (MyPeopleMember) query.getSingleResult();
 
         } catch (Exception e) {
 
-            Logger.getLogger(MemberFacade.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(MyPeopleMemberFacade.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }

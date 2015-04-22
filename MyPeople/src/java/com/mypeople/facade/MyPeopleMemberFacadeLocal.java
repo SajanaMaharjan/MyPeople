@@ -5,7 +5,7 @@
  */
 package com.mypeople.facade;
 
-import com.mypeople.entity.Member;
+import com.mypeople.entity.MyPeopleMember;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,19 +14,19 @@ import javax.ejb.Local;
  * @author sajana
  */
 @Local
-public interface MemberFacadeLocal {
+public interface MyPeopleMemberFacadeLocal {
 
-    void create(Member member);
+    void create(MyPeopleMember member);
 
-    void edit(Member member);
+    void edit(MyPeopleMember member);
 
-    void remove(Member member);
+    void remove(MyPeopleMember member);
 
-    Member find(Object id);
+    MyPeopleMember find(Object id);
 
-    List<Member> findAll();
+    List<MyPeopleMember> findAll();
 
-    List<Member> findRange(int[] range);
+    List<MyPeopleMember> findRange(int[] range);
 
     int count();
     

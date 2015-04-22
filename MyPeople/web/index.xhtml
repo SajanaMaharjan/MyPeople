@@ -32,24 +32,24 @@
                                                 <h:outputLabel value="Full Name"/>
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <h:inputText value="#{memberController.member.firstName}" required="true" p:placeholder="First Name"   class="form-control " requiredMessage="First Name is Required"></h:inputText>
+                                                        <h:inputText value="#{memberController.mpMember.firstName}" required="true" p:placeholder="First Name"   class="form-control " requiredMessage="First Name is Required"></h:inputText>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <h:inputText   value="#{memberController.member.lastName}"  required="true" p:placeholder="Last Name"  requiredMessage="Last Name is Required" class="form-control "></h:inputText >
+                                                        <h:inputText   value="#{memberController.mpMember.lastName}"  required="true" p:placeholder="Last Name"  requiredMessage="Last Name is Required" class="form-control "></h:inputText >
                                                     </div>
                                                 </div>
 
                                             </div>
                                             <div class="form-group">
                                                 <h:outputLabel value='Email Address ' />
-                                                <h:inputText value="#{memberController.member.email}" required="true" p:placeholder="Email" class="form-control " requiredMessage="Email is Required">
+                                                <h:inputText value="#{memberController.mpMember.email}" required="true" p:placeholder="Email" class="form-control " requiredMessage="Email is Required">
                                                     <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
                                                 </h:inputText>
 
                                             </div>
                                             <div class="form-group">
                                                 <h:outputLabel value='Password ' />
-                                                <h:inputSecret  value="#{memberController.member.password}" id="pass1"  required="true" class="form-control " requiredMessage="Password is Required">
+                                                <h:inputSecret  value="#{memberController.mpMember.password}" id="pass1"  required="true" class="form-control " requiredMessage="Password is Required">
                                                     <f:validator validatorId="passwordValidator" />
                                                     <f:attribute name="pass2" value="#{pass2}" />
                                                 </h:inputSecret>
@@ -64,21 +64,21 @@
                                             <h:outputLabel value="Address"/> <br/>
                                             <div class="form-group">
                                                 <h:outputLabel value="City" id="city"/>
-                                                <h:inputText value="#{memberController.member.city}" id="txtCity"/><br/>
+                                                <h:inputText value="#{memberController.mpMember.city}" id="txtCity"/><br/>
                                             </div>
                                             <div class="form-group">
                                                 <h:outputLabel value="Street" id="street"/>
-                                                <h:inputText value="#{memberController.member.street}" id="txtStreet"/><br/>
+                                                <h:inputText value="#{memberController.mpMember.street}" id="txtStreet"/><br/>
                                             </div>
 
                                             <div class="form-group">
                                                 <h:outputLabel value="State" id="state"/>
-                                                <h:inputText value="#{memberController.member.state}" id="txtState"/><br/>
+                                                <h:inputText value="#{memberController.mpMember.state}" id="txtState"/><br/>
                                             </div>
 
                                             <div class="form-group">
                                                 <h:outputLabel value="Contact No." id="contactNo"/>
-                                                <h:inputText value="#{memberController.member.contactNumber}" id="txtcontactNo"/><br/>
+                                                <h:inputText value="#{memberController.mpMember.contactNumber}" id="txtcontactNo"/><br/>
                                             </div>
 
                                             <h:commandButton action="#{memberController.addMember}" value="Sign Up" class="btn btn-primary"></h:commandButton>

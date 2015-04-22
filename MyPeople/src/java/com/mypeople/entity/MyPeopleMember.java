@@ -19,9 +19,8 @@ import javax.persistence.TemporalType;
  * @author Ashok Subedi
  */
 @Entity
-public class Member implements Serializable {
+public class MyPeopleMember implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -43,7 +42,7 @@ public class Member implements Serializable {
     
 //    private String imageName;
     
-    public Member(){
+    public MyPeopleMember(){
         
     }
 
@@ -176,10 +175,10 @@ public class Member implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Member)) {
+        if (!(object instanceof MyPeopleMember)) {
             return false;
         }
-        Member other = (Member) object;
+        MyPeopleMember other = (MyPeopleMember) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

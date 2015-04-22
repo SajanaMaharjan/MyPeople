@@ -5,9 +5,9 @@
  */
 package com.mypeople.bean;
 
-import com.mypeople.entity.Member;
-import com.mypeople.facade.MemberFacade;
-import com.mypeople.facade.MemberFacadeLocal;
+import com.mypeople.entity.MyPeopleMember;
+import com.mypeople.facade.MyPeopleMemberFacade;
+import com.mypeople.facade.MyPeopleMemberFacadeLocal;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -21,28 +21,30 @@ import javax.inject.Named;
 @SessionScoped
 public class MemberController implements Serializable{
    @EJB
-    private MemberFacadeLocal memberFacade;
-    private Member member;
+    MyPeopleMemberFacadeLocal mpMemberFacade;
+    private MyPeopleMember mpMember;
     
 
     /**
      * Creates a new instance of MemberBean
      */
     public MemberController() {
-        member = new Member();
-        memberFacade = new MemberFacade();
+        mpMember = new MyPeopleMember();
+        mpMemberFacade = new MyPeopleMemberFacade();
     }
 
     public void addMember(){
-        memberFacade.create(member);
-    }
-    public Member getMember() {
-        return member;
+        mpMemberFacade.create(mpMember);
     }
 
-    public void setMember(Member member) {
-        this.member = member;
+    public MyPeopleMember getMpMember() {
+        return mpMember;
     }
+
+    public void setMpMember(MyPeopleMember mpMember) {
+        this.mpMember = mpMember;
+    }
+   
 
      
 }
