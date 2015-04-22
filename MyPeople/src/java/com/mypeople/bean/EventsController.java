@@ -5,7 +5,8 @@
  */
 package com.mypeople.bean;
 
-import com.mypeople.entity.Events;
+import com.mypeople.entity.Event;
+import com.mypeople.entity.EventComment;
 import com.mypeople.facade.EventsFacade;
 import com.mypeople.facade.EventsFacadeLocal;
 import java.io.Serializable;
@@ -32,17 +33,17 @@ public class EventsController implements Serializable {
 
     @EJB
     EventsFacadeLocal service;
-    private Events newEvent;
+    private Event event;
     private String eventName;
 //    @Temporal(javax.persistence.TemporalType.DATE)
     private String eventDate;
     private String eventDesc;
     private String eventDetails;
-    private List<Events> eventList;
-    
-    
+    private List<Event> eventList;
+//    private List<EventComment> comments;
+
     @PostConstruct
-    public void initEvents(){
+    public void initEvents() {
         eventList = service.findAll();
     }
 
@@ -51,24 +52,47 @@ public class EventsController implements Serializable {
     }
 
     public String addEvent() {
-        Events newEvent = new Events(eventName, eventDate, eventDesc, eventDetails);
-        service.create(newEvent);
+        Event event = new Event(eventName, eventDate, eventDesc, eventDetails);
+        service.create(event);
         return "event";
     }
 
-    public Events getNewEvent() {
-        return newEvent;
+    public String updateEvent() {
+
+//        current = (Event) getItems().getRowData();
+        return "eventEdit";
     }
 
-    public void setNewEvent(Events newEvent) {
-        this.newEvent = newEvent;
+    public String delete() {
+        eventList.remove(this);
+        return "event";
     }
 
-    public List<Events> getEventList() {
+    public void preRenderView(String providerId) {
+        System.out.println("provider id +++ " + providerId);
+        if (!providerId.isEmpty()) {
+            event = service.find(Long.parseLong(providerId));
+//            comments=commentFacade.getCommentOfProvider(Long.parseLong(providerId));
+        }
+    }
+
+    public void postComment() {
+
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public List<Event> getEventList() {
         return eventList;
     }
 
-    public void setEventList(List<Events> eventList) {
+    public void setEventList(List<Event> eventList) {
         this.eventList = eventList;
     }
 
@@ -104,6 +128,12 @@ public class EventsController implements Serializable {
         this.eventDetails = eventDetails;
     }
 
-    
-    
+//    public List<EventComment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(List<EventComment> comments) {
+//        this.comments = comments;
+//    }
+
 }

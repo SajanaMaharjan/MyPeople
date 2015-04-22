@@ -7,32 +7,36 @@ package com.mypeople.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
+import javax.persistence.OneToMany;
+//import javax.persistence.Temporal;
 
 /**
  *
  * @author sajana
  */
 @Entity
-public class Events implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Event implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+//     @OneToMany(mappedBy = "Event")
+//    private List<EventComment> comments;
+    
     private String eventName;
 //    @Temporal(javax.persistence.TemporalType.DATE)
     private String eventDate;
     private String eventDesc;
     private String eventDetails;
 
-    public Events(){
+    public Event(){
         
     }
-    public Events(String name, String date, String desc, String details) {
+    public Event(String name, String date, String desc, String details) {
         this.eventName = name;
         this.eventDate = date;
         this.eventDesc = desc;
@@ -79,6 +83,14 @@ public class Events implements Serializable {
         this.eventDetails = eventDetails;
     }
 
+//    public List<EventComment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(List<EventComment> comments) {
+//        this.comments = comments;
+//    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -89,10 +101,10 @@ public class Events implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Events)) {
+        if (!(object instanceof Event)) {
             return false;
         }
-        Events other = (Events) object;
+        Event other = (Event) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

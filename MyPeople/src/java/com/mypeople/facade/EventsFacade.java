@@ -5,7 +5,7 @@
  */
 package com.mypeople.facade;
 
-import com.mypeople.entity.Events;
+import com.mypeople.entity.Event;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  * @author sajana
  */
 @Stateless
-public class EventsFacade extends AbstractFacade<Events> implements EventsFacadeLocal{
+public class EventsFacade extends AbstractFacade<Event> implements EventsFacadeLocal{
     @PersistenceContext(unitName = "MyPeoplePU")
     private EntityManager em;
 
@@ -26,16 +26,16 @@ public class EventsFacade extends AbstractFacade<Events> implements EventsFacade
     }
 
     public EventsFacade() {
-        super(Events.class);
+        super(Event.class);
     }
 
     @Override
-    public Events getUserInfo(String email) {
+    public Event getUserInfo(String email) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Events> findActiveUsers() {
+    public List<Event> findActiveUsers() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
