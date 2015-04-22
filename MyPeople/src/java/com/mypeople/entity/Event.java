@@ -21,26 +21,21 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Event implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-     @OneToMany(mappedBy = "Event")
+    @OneToMany(mappedBy = "Event")
     private List<EventComment> comments;
-    
+
     private String eventName;
 //    @Temporal(javax.persistence.TemporalType.DATE)
     private String eventDate;
     private String eventDesc;
     private String eventDetails;
 
-    public Event(){
-        
-    }
-    public Event(String name, String date, String desc, String details) {
-        this.eventName = name;
-        this.eventDate = date;
-        this.eventDesc = desc;
-        this.eventDetails = details;
+    public Event() {
+
     }
 
     public Long getId() {
@@ -90,7 +85,6 @@ public class Event implements Serializable {
 //    public void setComments(List<EventComment> comments) {
 //        this.comments = comments;
 //    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -115,5 +109,5 @@ public class Event implements Serializable {
     public String toString() {
         return "com.mypeople.entity.events[ id=" + id + " ]";
     }
-    
+
 }

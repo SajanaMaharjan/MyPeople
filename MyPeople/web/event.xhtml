@@ -52,7 +52,7 @@ and open the template in the editor.
                                 <f:param name="eventId" value="#{event.id}"/>
                             </h:link>
                             |
-                            <h:commandLink action="#{eventsController.delete()}" value="Delete"/> 
+                            <h:commandLink action="#{eventsController.deleteEvent(event)}" value="Delete"/> 
                         </h:column>
                     </h:dataTable>
                     <h:button value="Create New Event" outcome="addEvent"/>

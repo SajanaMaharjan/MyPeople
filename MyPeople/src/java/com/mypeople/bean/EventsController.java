@@ -36,16 +36,10 @@ public class EventsController implements Serializable {
     @EJB
     EventCommentFacadeLocal commentFacade;
     private Event event;
-//    private String eventName;
-////    @Temporal(javax.persistence.TemporalType.DATE)
-//    private String eventDate;
-//    private String eventDesc;
-//    private String eventDetails;
     private List<Event> eventList;
     private EventComment comments;
     private List<EventComment> commentList;
 
-    
     @PostConstruct
     public void initEvents() {
         eventList = service.findAll();
@@ -58,31 +52,36 @@ public class EventsController implements Serializable {
     }
 
     public String addEvent() {
-//        Event event = new Event(eventName, eventDate, eventDesc, eventDetails);
         service.create(event);
         return "event";
     }
 
-    public String updateEvent() {
+    public void updateEvent(Event e) throws IOException{
+        service.edit(e);
+        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+        context.redirect(context.getRequestContextPath() + "/eventDetails.faces?eventId=" + e.getId());
 
-//        current = (Event) getItems().getRowData();
-        return "eventEdit";
     }
 
-    public String delete() {
-        eventList.remove(this);
+    public String deleteEvent(Event e) {
+        commentList = commentFacade.getCommentOfEvent(e.getId());
+        for (EventComment comment : commentList) {
+            commentFacade.remove(comment);
+        }
+
+        service.remove(e);
         return "event";
     }
 
     public void preRenderView(String eventId) {
-        
+
         if (!eventId.isEmpty()) {
             event = service.find(Long.parseLong(eventId));
-            commentList=commentFacade.getCommentOfEvent(Long.parseLong(eventId));
+            commentList = commentFacade.getCommentOfEvent(Long.parseLong(eventId));
         }
     }
 
-    public void postComment()throws IOException {
+    public void postComment() throws IOException {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         Event event = service.find(Long.parseLong(params.get("eventId")));
         comments.setEvent(event);
@@ -95,8 +94,6 @@ public class EventsController implements Serializable {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
         context.redirect(context.getRequestContextPath() + "/eventDetails.faces?eventId=" + event.getId());
 
-        
-       
     }
 
     public Event getEvent() {
@@ -114,39 +111,7 @@ public class EventsController implements Serializable {
     public void setEventList(List<Event> eventList) {
         this.eventList = eventList;
     }
-//
-//    public String getEventName() {
-//        return eventName;
-//    }
-//
-//    public void setEventName(String eventName) {
-//        this.eventName = eventName;
-//    }
-//
-//    public String getEventDate() {
-//        return eventDate;
-//    }
-//
-//    public void setEventDate(String eventDate) {
-//        this.eventDate = eventDate;
-//    }
-//
-//    public String getEventDesc() {
-//        return eventDesc;
-//    }
-//
-//    public void setEventDesc(String eventDesc) {
-//        this.eventDesc = eventDesc;
-//    }
-//
-//    public String getEventDetails() {
-//        return eventDetails;
-//    }
-//
-//    public void setEventDetails(String eventDetails) {
-//        this.eventDetails = eventDetails;
-//    }
-
+    
     public EventComment getComments() {
         return comments;
     }
@@ -163,5 +128,4 @@ public class EventsController implements Serializable {
         this.commentList = commentList;
     }
 
-    
 }

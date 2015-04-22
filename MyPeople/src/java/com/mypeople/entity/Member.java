@@ -39,8 +39,13 @@ public class Member implements Serializable {
     private String contactNumber;
     private String email;
     private String password;
-    private String conPassword;
+//    private String conPassword;
+    
 //    private String imageName;
+    
+    public Member(){
+        
+    }
 
     public Long getId() {
         return id;
@@ -153,13 +158,13 @@ public class Member implements Serializable {
 //    public void setImageName(String imageName) {
 //        this.imageName = imageName;
 //    }
-    public String getConPassword() {
-        return conPassword;
-    }
-
-    public void setConPassword(String conPassword) {
-        this.conPassword = conPassword;
-    }
+//    public String getConPassword() {
+//        return conPassword;
+//    }
+//
+//    public void setConPassword(String conPassword) {
+//        this.conPassword = conPassword;
+//    }
 
     @Override
     public int hashCode() {
