@@ -6,25 +6,42 @@
         <title>My People: Header</title>
     </h:head>
     <h:body>
-       
-       <div class="wrapper col1">
-  <div id="header" class="clear">
-    <div class="fl_left">
-        <h1><a href="#"><span style="color: red">My</span>People</a></h1>
-    </div>
-    <div class="fl_right">
-      <ul>
-        <li class="active"><a href="index.html"><span>Home</span></a></li>
-        <li><h:link value="SignUp" outcome="registration"/></li>
-        <li><a href="styling.html"><span>Styling</span></a></li>
-        <li><a href="#"><span>Portfolio</span></a></li>
-        <li><h:link value="events" outcome="event"/></li>
-         
-        <li class="last"><a href="#"><span>Contact</span></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+
+        <div class="wrapper col1">
+            <div id="header" class="clear">
+                <div class="fl_left">
+                    <h1><a href="#"><span style="color: red">My</span>People</a></h1>
+                </div>
+                <div class="fl_right">
+                    <ul>
+                        <li class="active"><a href="index.html"><span>Home</span></a></li>
+                        <li><h:link value="SignUp" outcome="registration"/></li>
+                        <li><a href="styling.html"><span>Styling</span></a></li>
+                        <li><a href="#"><span>Portfolio</span></a></li>
+                        <li><h:link value="events" outcome="event"/></li>
+
+                        <li class="last"><a href="#"><span>Contact</span></a></li>
+                    </ul>
+
+
+                    <!--if(!loggedon)-->
+                    <form method='post' action='j_security_check'>
+                        <h:messages layout='table' errorStyle='background: #AFEEEE;'
+                                    infoStyle='background: #AFEEEE;' globalOnly='true' />
+                        <h:panelGrid columns='5'>
+                            <h:outputLabel value='Username ' />
+                            <input type='text' class='form-control' style='margin-left:5px' id='j_username' name='j_username' />
+                            <h:outputLabel value='Password ' />
+                            <input type='password' class='form-control' style='margin-left:5px' id='j_password' name='j_password' />
+                            <input type='submit' class="btn btn-primary pull-right"  name='submit' value='Login' />                                            
+                        </h:panelGrid>
+                        <br />
+                    </form>
+                    <!--not logged on-->
+                </div>
+            </div>
+        </div>
+        
     </h:body>
 </html>
 
