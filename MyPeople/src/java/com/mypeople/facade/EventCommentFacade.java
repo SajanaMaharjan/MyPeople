@@ -33,5 +33,6 @@ public class EventCommentFacade extends AbstractFacade<EventComment> implements 
     public List<EventComment> getCommentOfEvent(Long eventId) {
        return em.createNamedQuery("getEventComment").setParameter("eventId", eventId).getResultList();
     }
-    
+
+       
 }

@@ -28,9 +28,8 @@ and open the template in the editor.
                     <h:inputTextarea id="txtEventDesc" rows="5" value="#{eventsController.event.eventDesc}"/><br/>
                     <h:outputText value="Event Details "/>
                     <h:inputTextarea id="txtEventDetails" rows="5" value="#{eventsController.event.eventDetails}"/><br/>                
-                    <h:commandButton value="Edit Event" action="#{eventsController.addEvent()}"/>
+                    <h:commandButton value="Edit Event" id="editEvent" type="submit" action="#{eventsController.updateEvent(eventsController.event)}"/>
                 </h:form>
-
             </ui:define>
         </ui:composition>
     </h:body>
