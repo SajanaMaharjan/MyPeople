@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Around Me</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/template.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <h:outputLabel value="People Around Me "/><br/>
+                    <h:dataTable value="#{memberController.mpMemberList}" var="member">
+                       <h:column>
+                        <h:outputLabel value="#{member.firstName} #{member.lastName}"/>
+                       </h:column>
+                        <br/>
+                        <h:column>                            
+                            <h:outputLabel value="#{member.street} #{member.city} #{member.state}"/>
+                        </h:column><br/>
+                        <h:column>
+                            <h:outputLabel value ="${member.email}" />
+                        </h:column>  
+                        <br/>
+                        <h:column>
+                            <h:outputLabel value ="${member.contactNumber}" />
+                        </h:column>
+                    </h:dataTable>
+                    <h:dataTable>
+
+                    </h:dataTable>
+
+                    <h:outputLabel value="Recent Events Around Me "/><br/>
+                    <h:dataTable value="#{eventsController.eventList}" var="event">
+                        <h:column>
+                            <h:outputText value="#{event.eventName}"></h:outputText>                                               
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{event.eventDate}"></h:outputText>                                               
+                        </h:column>
+                        <h:column>
+                            <h:outputText value ="${event.eventDesc}" />
+                        </h:column>
+
+                    </h:dataTable>
+
+                    <h:outputLabel value="Food Around Me "/><br/>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
