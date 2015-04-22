@@ -20,28 +20,27 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Member implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String userName;
+//    private String userName;
     private String firstName;
     private String lastName;
-     
+
 //    @Temporal(TemporalType.DATE)
-    private String dob;
+//    private String dob;
     private String street;
     private String city;
     private String state;
-    private String homeCity;
-    private String gender;
+//    private String homeCity;
+//    private String gender;
     private String contactNumber;
     private String email;
     private String password;
+    private String conPassword;
 //    private String imageName;
-    
-    
-    
 
     public Long getId() {
         return id;
@@ -50,8 +49,6 @@ public class Member implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
-  
 
     public String getStreet() {
         return street;
@@ -77,13 +74,13 @@ public class Member implements Serializable {
         this.state = state;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+//    public String getUserName() {
+//        return userName;
+//    }
+//
+//    public void setUserName(String userName) {
+//        this.userName = userName;
+//    }
 
     public String getFirstName() {
         return firstName;
@@ -101,32 +98,29 @@ public class Member implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getDob() {
-        return dob;
-    }
+//    public String getDob() {
+//        return dob;
+//    }
+//
+//    public void setDob(String dob) {
+//        this.dob = dob;
+//    }
 
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
-  
-
-    public String getHomeCity() {
-        return homeCity;
-    }
-
-    public void setHomeCity(String homeCity) {
-        this.homeCity = homeCity;
-    }
-
-   
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+//    public String getHomeCity() {
+//        return homeCity;
+//    }
+//
+//    public void setHomeCity(String homeCity) {
+//        this.homeCity = homeCity;
+//    }
+//
+//    public String getGender() {
+//        return gender;
+//    }
+//
+//    public void setGender(String gender) {
+//        this.gender = gender;
+//    }
 
     public String getContactNumber() {
         return contactNumber;
@@ -159,7 +153,13 @@ public class Member implements Serializable {
 //    public void setImageName(String imageName) {
 //        this.imageName = imageName;
 //    }
-    
+    public String getConPassword() {
+        return conPassword;
+    }
+
+    public void setConPassword(String conPassword) {
+        this.conPassword = conPassword;
+    }
 
     @Override
     public int hashCode() {
@@ -185,5 +185,5 @@ public class Member implements Serializable {
     public String toString() {
         return "com.mypeople.entity.Member[ id=" + id + " ]";
     }
-    
+
 }

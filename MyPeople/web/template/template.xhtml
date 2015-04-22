@@ -22,11 +22,22 @@
     <h:body>  
         <div class="page_wrap clearfix">
 
-            
-            <ui:insert name="content" >
-                <ui:include src="/template/content.xhtml" />
+            <ui:insert name ="header">
+                <ui:include src ="/template/header.xhtml"/>
             </ui:insert>
+
+            <div class="wrapper col3">
+                <div id="container">
+                    <div id="hpagesplitter"></div>
+                    <ui:insert name="content" >
+                        <ui:include src="/template/content.xhtml" />
+                    </ui:insert>
+                </div>
+            </div>
         </div>
-        
+        <ui:insert name="footer" >
+            <ui:include src="/template/footer.xhtml" />
+        </ui:insert>
+
     </h:body>
 </html>
