@@ -2,47 +2,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>           
               
     </h:head>
     <h:body>
+        
+      
         <ui:composition template="template/template.xhtml">
             <ui:define name="content">
                 
+                      <div class="wrapper col1">
+  <div id="header" class="clear">
+    <div class="fl_left">
+        <h1><a href="#"><span style="color: red">My</span>People</a></h1>
+    </div> 
+      <div class="fl_right">
+           <form method='post' action='j_security_check'>
+                                        <h:messages layout='table' errorStyle='background: #AFEEEE;'
+                                                    infoStyle='background: #AFEEEE;' globalOnly='true' />
+                                        <h:panelGrid columns='5'>
+                                            <h:outputLabel value='Username ' />
+                                            <input type='text' class='form-control' style='margin-left:5px' id='j_username' name='j_username' />
+                                            <h:outputLabel value='Password ' />
+                                            <input type='password' class='form-control' style='margin-left:5px' id='j_password' name='j_password' />
+                                          <input type='submit' class="btn btn-primary pull-right"  name='submit' value='Login' />                                            
+                                        </h:panelGrid>
+                                        <br />
+                                    </form>
+      
+    </div>
+  </div>
+</div>
+                
         <div class="wrapper col3">
   <div id="container">
-    <!-- ## Homepage Specific ## -->
-    <div id="featured">
-      <div class="bg_top">
-        <div class="bg_bot clear">
-          <div class="holder">
-            <p class="center"><img src="images/placeholders/lifering.png" alt="" /></p>
-            <h2>24/7 Support</h2>
-            <p>Lorem ipsum dolor sit port amet, con sectetur adipi, molest nunc anteget sed vel lacus mus semper.</p>
-            <p class="readmore"><a href="#"><span>Read More</span></a></p>
-          </div>
-          <div class="holder">
-            <p class="center"><img src="images/placeholders/briefcase.png" alt="" /></p>
-            <h2>Pride Folio</h2>
-            <p>Lorem ipsum dolor sit port amet, con sectetur adipi, molest nunc anteget sed vel lacus mus semper.</p>
-            <p class="readmore"><a href="#"><span>Read More</span></a></p>
-          </div>
-          <div class="holder">
-            <p class="center"><img src="images/placeholders/clock.png" alt="" /></p>
-            <h2>Time Respect</h2>
-            <p>Lorem ipsum dolor sit port amet, con sectetur adipi, molest nunc anteget sed vel lacus mus semper.</p>
-            <p class="readmore"><a href="#"><span>Read More</span></a></p>
-          </div>
-          <div class="holder last">
-            <p class="center"><img src="images/placeholders/barchart.png" alt="" /></p>
-            <h2>Best Quality</h2>
-            <p>Lorem ipsum dolor sit port amet, con sectetur adipi, molest nunc anteget sed vel lacus mus semper.</p>
-            <p class="readmore"><a href="#"><span>Read More</span></a></p>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- / ### -->
     <div id="hpagesplitter"></div>
     <!-- / ### -->
@@ -50,49 +46,58 @@
       <div class="bg_top">
         <div class="bg_bot clear">
           <div class="fl_left">
-            <h2>Who we are</h2>
-            <p>Veneanut elit in curabitudin sus lorem quisque in euisquet vel congue. Lobortisnunc sed ut sempus lacing ipsum quis dui pellentumsan conse ctetus wisi. Justoet nec quis non pretium.</p>
-            <h2>Behind the logo</h2>
-            <p>Veneanut elit in curabitudin sus lorem quisque in euisquet vel congue. Lobortisnunc sed ut sempus lacing ipsum quis dui pellentumsan conse.</p>
-            <p class="cite"><cite>&quot;Veneanut elit in curabitudin sus lorem quisque in euisquet vel con. Lobortisnunc sed ut sempus lacing ipsum&quot; <strong>MyName Here</strong></cite></p>
-          </div>
+            <h2>Welcome To MyPeople</h2>
+            <p>My People will connect you with people form your country in foreign land, so that you never feel
+            alone and have your community.</p>
+            </div>
           <div class="fl_right">
-            <h2>Our Team</h2>
-            <p>Veneanut elit in curabitudin sus lorem quisque in euisquet vel congue. Lobortisnunc sed ut sempus lacing ipsum quis dui.</p>
-            <ul id="teammembers" class="clear">
-              <!-- Member 1 -->
-              <li><a href="#" class="teammember"><img src="images/placeholders/female.png" alt="" /> Jane Doe Designer</a><br />
-                <ul class="socialicons">
-                  <li class="twitter"><a href="#" title="Twitter">Twitter</a></li>
-                  <li class="linkedin"><a href="#" title="Linked In">Linked In</a></li>
-                  <li class="facebook last"><a href="#" title="Facebook">Facebook</a></li>
-                </ul>
-              </li>
-              <!-- Member 2 -->
-              <li><a href="#" class="teammember"><img src="images/placeholders/male.png" alt="" /> John Doe Designer</a><br />
-                <ul class="socialicons">
-                  <li class="twitter"><a href="#" title="Twitter">Twitter</a></li>
-                  <li class="linkedin"><a href="#" title="Linked In">Linked In</a></li>
-                  <li class="facebook last"><a href="#" title="Facebook">Facebook</a></li>
-                </ul>
-              </li>
-              <!-- Member 3 -->
-              <li><a href="#" class="teammember"><img src="images/placeholders/male.png" alt="" /> John Doe Designer</a><br />
-                <ul class="socialicons">
-                  <li class="twitter"><a href="#" title="Twitter">Twitter</a></li>
-                  <li class="linkedin"><a href="#" title="Linked In">Linked In</a></li>
-                  <li class="facebook last"><a href="#" title="Facebook">Facebook</a></li>
-                </ul>
-              </li>
-              <!-- Member 4 -->
-              <li class="last"><a href="#" class="teammember"><img src="images/placeholders/female.png" alt="" /> Jane Doe Designer</a><br />
-                <ul class="socialicons">
-                  <li class="twitter"><a href="#" title="Twitter">Twitter</a></li>
-                  <li class="linkedin"><a href="#" title="Linked In">Linked In</a></li>
-                  <li class="facebook last"><a href="#" title="Facebook">Facebook</a></li>
-                </ul>
-              </li>
-            </ul>
+            <h2>Sign Up</h2>
+            <p>Bring your country abroad..</p>
+            <br/>
+            <h:form  class="form-vertical">
+                                                        <fieldset>
+
+
+                                                            <div class="well">
+                                                                <div class="form-group">
+                                                                    <h:outputLabel value="Full Name"/>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <h:inputText value="#{signupController.firstName}" required="true" p:placeholder="First Name"   class="form-control " requiredMessage="First Name is Required"></h:inputText>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <h:inputText   value="#{signupController.lastName}"  required="true" p:placeholder="Last Name"  requiredMessage="Last Name is Required" class="form-control "></h:inputText >
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <h:outputLabel value='Email Address ' />
+                                                                    <h:inputText value="#{signupController.email}" required="true" p:placeholder="Email" class="form-control " requiredMessage="Email is Required">
+                                                                        <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                                                    </h:inputText>
+
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <h:outputLabel value='Password ' />
+                                                                    <h:inputSecret  value="#{signupController.password}" id="pass1"  required="true" class="form-control " requiredMessage="Password is Required">
+                                                                        <f:validator validatorId="passwordValidator" />
+                                                                        <f:attribute name="pass2" value="#{pass2}" />
+                                                                    </h:inputSecret>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <h:outputLabel value='Confirm Password ' />
+                                                                    <h:inputSecret  value="#{signupController.conPassword}" binding="#{pass2}"  id="pass2" required="true" class="form-control " requiredMessage="Confirm Password is Required"></h:inputSecret >
+                                                                </div>	
+                                                                <div class="form-group">
+                                                                </div>	
+                                                                <h:commandButton action="#{signupController.saveRegInfo}" value="save" class="btn btn-primary"></h:commandButton>
+                                                            </div>
+
+
+                                                        </fieldset>
+                                                    </h:form>
+            
           </div>
         </div>
       </div>
@@ -102,6 +107,8 @@
 </div>
             </ui:define>
         </ui:composition>
+                
+          
     </h:body>
 </html>
 

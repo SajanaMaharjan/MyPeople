@@ -22,18 +22,11 @@
     <h:body>  
         <div class="page_wrap clearfix">
 
-            <ui:insert name ="header">
-                <ui:include src ="/template/header.xhtml"/>
-            </ui:insert>
-
+            
             <ui:insert name="content" >
                 <ui:include src="/template/content.xhtml" />
             </ui:insert>
         </div>
-        <ui:insert name="footer" >
-            <ui:include src="/template/footer.xhtml" />
-        </ui:insert>
-        <ui:remove><h:outputScript name="jquery.js" library="js" />
-            <h:outputScript name="scripts.js" library="js" /></ui:remove>
+        
     </h:body>
 </html>
