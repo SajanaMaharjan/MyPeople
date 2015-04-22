@@ -5,22 +5,23 @@
  */
 package com.mypeople.bean;
 
-import com.mypeople.entity.Events;
+import com.mypeople.entity.Event;
+import com.mypeople.entity.EventComment;
 import com.mypeople.facade.EventsFacade;
 import com.mypeople.facade.EventsFacadeLocal;
+import com.mypeople.facade.EventCommentFacadeLocal;
+import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.inject.Named;
-//import javax.persistence.Temporal;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.enterprise.context.RequestScoped;
 
 /**
  *
@@ -32,43 +33,85 @@ public class EventsController implements Serializable {
 
     @EJB
     EventsFacadeLocal service;
-    private Events newEvent;
+    @EJB
+    EventCommentFacadeLocal commentFacade;
+    private Event event;
     private String eventName;
 //    @Temporal(javax.persistence.TemporalType.DATE)
     private String eventDate;
     private String eventDesc;
     private String eventDetails;
-    private List<Events> eventList;
-    
+    private List<Event> eventList;
+    private EventComment comments;
+    private List<EventComment> commentList;
+
     
     @PostConstruct
-    public void initEvents(){
+    public void initEvents() {
         eventList = service.findAll();
     }
 
     public EventsController() {
         service = new EventsFacade();
+        comments = new EventComment();
+        event = new Event();
     }
 
     public String addEvent() {
-        Events newEvent = new Events(eventName, eventDate, eventDesc, eventDetails);
-        service.create(newEvent);
+        Event event = new Event(eventName, eventDate, eventDesc, eventDetails);
+        service.create(event);
         return "event";
     }
 
-    public Events getNewEvent() {
-        return newEvent;
+    public String updateEvent() {
+
+//        current = (Event) getItems().getRowData();
+        return "eventEdit";
     }
 
-    public void setNewEvent(Events newEvent) {
-        this.newEvent = newEvent;
+    public String delete() {
+        eventList.remove(this);
+        return "event";
     }
 
-    public List<Events> getEventList() {
+    public void preRenderView(String eventId) {
+        
+        if (!eventId.isEmpty()) {
+            event = service.find(Long.parseLong(eventId));
+            commentList=commentFacade.getCommentOfEvent(Long.parseLong(eventId));
+        }
+    }
+
+    public void postComment()throws IOException {
+        Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        Event event = service.find(Long.parseLong(params.get("eventId")));
+        comments.setEvent(event);
+
+        Date curDate = new Date();
+
+        comments.setCreatedDate(curDate);
+        commentFacade.create(comments);
+
+        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+        context.redirect(context.getRequestContextPath() + "/eventDetails.faces?eventId=" + event.getId());
+
+        
+       
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public List<Event> getEventList() {
         return eventList;
     }
 
-    public void setEventList(List<Events> eventList) {
+    public void setEventList(List<Event> eventList) {
         this.eventList = eventList;
     }
 
@@ -104,6 +147,21 @@ public class EventsController implements Serializable {
         this.eventDetails = eventDetails;
     }
 
-    
+    public EventComment getComments() {
+        return comments;
+    }
+
+    public void setComments(EventComment comments) {
+        this.comments = comments;
+    }
+
+    public List<EventComment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<EventComment> commentList) {
+        this.commentList = commentList;
+    }
+
     
 }

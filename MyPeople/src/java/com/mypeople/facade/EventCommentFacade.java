@@ -5,7 +5,7 @@
  */
 package com.mypeople.facade;
 
-import com.mypeople.entity.Event;
+import com.mypeople.entity.EventComment;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  * @author sajana
  */
 @Stateless
-public class EventsFacade extends AbstractFacade<Event> implements EventsFacadeLocal{
+public class EventCommentFacade extends AbstractFacade<EventComment> implements EventCommentFacadeLocal {
     @PersistenceContext(unitName = "MyPeoplePU")
     private EntityManager em;
 
@@ -25,18 +25,13 @@ public class EventsFacade extends AbstractFacade<Event> implements EventsFacadeL
         return em;
     }
 
-    public EventsFacade() {
-        super(Event.class);
+    public EventCommentFacade() {
+        super(EventComment.class);
     }
 
     @Override
-    public Event getUserInfo(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Event> findActiveUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<EventComment> getCommentOfEvent(Long eventId) {
+       return em.createNamedQuery("getEventComment").setParameter("eventId", eventId).getResultList();
     }
     
 }

@@ -10,7 +10,7 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>TODO supply a title</title>
+        <title>Events</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
@@ -36,13 +36,24 @@ and open the template in the editor.
                             <f:facet name="header">
                                 <h:outputText value="Event Description"/>
                             </f:facet>                    
-                            <h:outputText value="#{event.eventDesc}" ></h:outputText> 
+                            <h:commandLink value ="${event.eventDesc}" action="#{searchProvidersController.spByCode(event.id)}">
+                                <f:param name="providerId" value="#{service.id}"/>
+                            </h:commandLink>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="Action"/>
-                            </f:facet>                    
-                            <h:outputText value="Edit" />|<h:outputText value="Delete"/> 
+                            </f:facet>   
+
+                            <h:link value="View" outcome="eventDetails" >
+                                <f:param name="eventId" value="#{event.id}"/>
+                            </h:link>
+                            |
+                            <h:link value="Edit" outcome="eventEdit" >
+                                <f:param name="eventId" value="#{event.id}"/>
+                            </h:link>
+                            |
+                            <h:commandLink action="#{eventsController.delete()}" value="Delete"/> 
                         </h:column>
                     </h:dataTable>
                     <h:button value="Create New Event" outcome="addEvent"/>

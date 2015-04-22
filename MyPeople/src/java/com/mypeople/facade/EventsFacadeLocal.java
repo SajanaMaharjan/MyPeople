@@ -5,7 +5,7 @@
  */
 package com.mypeople.facade;
 
-import com.mypeople.entity.Events;
+import com.mypeople.entity.Event;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -15,23 +15,23 @@ import javax.ejb.Local;
  */
 @Local
 public interface EventsFacadeLocal {
-      void create(Events event);
+      void create(Event event);
 
-    void edit(Events event);
+    void edit(Event event);
 
-    void remove(Events event);
+    void remove(Event event);
 
-    Events find(Object id);
+    Event find(Object id);
 
-    List<Events> findAll();
+    List<Event> findAll();
 
-    List<Events> findRange(int[] range);
+    List<Event> findRange(int[] range);
 
     int count();
     
-    public Events getUserInfo(String email);
+    public Event getUserInfo(String email);
     
-    public List<Events> findActiveUsers();
+    public List<Event> findActiveUsers();
     
       
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:metadata>
+        <f:event listener="#{eventsController.preRenderView(request.getParameter('eventId'))}" type="preRenderView"/>
+    </f:metadata>
+    <h:head>
+        <title>Events</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/template.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <h1>#{eventsController.event.eventName}</h1>
+                    <h:outputText value="Date "/>
+                    <h:outputText id="txtEventDate" value="#{eventsController.event.eventDate}" /><br/>
+                    <br/>
+                    <h:outputText id="txtEventDesc"  value="#{eventsController.event.eventDesc}"/><br/><br/>
+                    <h:outputText value="Event Details : "/><br/>
+                    <h:outputText id="txtEventDetails"  value="#{eventsController.event.eventDetails}"/><br/><br/>    
+                </h:form>
+
+                <h4>Comments By users</h4>
+                <table>
+                    <ui:repeat value="#{eventsController.commentList}" var="comment">
+                        <tr>
+                            <td style="color: teal;"><b>#{comment.comment}</b></td>
+                            <td><h:outputText value="#{comment.createdDate}" >
+                                    <f:convertDateTime pattern="MM-dd-yyyy  HH:mm" />
+                                </h:outputText></td>
+                        </tr>
+                    </ui:repeat>
+                </table>
+
+
+                <h:form id="commentForm">
+                    <h:outputText value="Add Comments"/><br/><br/>
+                    <h:inputTextarea id="txtEventDetails" rows="5" cols="50" value="#{eventsController.comments.comment}" /><br/>  
+
+                    <h:commandButton value="Comment" id="postMessage" type="submit" class="btn btn-primary" action="#{eventsController.postComment}">
+                        <f:param value="${eventsController.event.id}" name="eventId"/>
+                    </h:commandButton>   
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

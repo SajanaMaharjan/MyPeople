@@ -11,33 +11,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 
 /**
  *
  * @author sajana
  */
+@NamedQueries({
+@NamedQuery(name = "getEventComment",query = "select c from EventComment c where c.event.id=:eventId")
+})
 @Entity
-public class Events implements Serializable {
+public class EventComment implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String eventName;
-//    @Temporal(javax.persistence.TemporalType.DATE)
-    private String eventDate;
-    private String eventDesc;
-    private String eventDetails;
-
-    public Events(){
-        
-    }
-    public Events(String name, String date, String desc, String details) {
-        this.eventName = name;
-        this.eventDate = date;
-        this.eventDesc = desc;
-        this.eventDetails = details;
-    }
+    private String comment;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date createdDate;
+    
+    @ManyToOne
+    private Event event;
 
     public Long getId() {
         return id;
@@ -47,38 +45,31 @@ public class Events implements Serializable {
         this.id = id;
     }
 
-    public String getEventName() {
-        return eventName;
+    public String getComment() {
+        return comment;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
-    public String getEventDate() {
-        return eventDate;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setEventDate(String eventDate) {
-        this.eventDate = eventDate;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public String getEventDesc() {
-        return eventDesc;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setEventDesc(String eventDesc) {
-        this.eventDesc = eventDesc;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
-    public String getEventDetails() {
-        return eventDetails;
-    }
-
-    public void setEventDetails(String eventDetails) {
-        this.eventDetails = eventDetails;
-    }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -89,10 +80,10 @@ public class Events implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Events)) {
+        if (!(object instanceof EventComment)) {
             return false;
         }
-        Events other = (Events) object;
+        EventComment other = (EventComment) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -101,7 +92,7 @@ public class Events implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mypeople.entity.events[ id=" + id + " ]";
+        return "com.mypeople.entity.EventComments[ id=" + id + " ]";
     }
-    
+
 }
