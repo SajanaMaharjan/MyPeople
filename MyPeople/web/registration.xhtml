@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>SignUp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/template.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGroup>
+                        <h:panelGrid> 
+                            <h:outputText value="Username" id="uname"/>
+                            <h:inputText id="txtUname" value="#{memberController.member.userName}" >
+                            </h:inputText>
+                            <h:outputText value="First Name" id="fname"/>
+                            <h:inputText value="#{memberController.member.firstName}" id="txtFirstName" >
+                            </h:inputText>
+                            <h:message id="firstNameError" for="txtFirstName" style="color: red"/> 
+                            <br/>
+                            <h:outputText value="Last Name" id="lastName"/>
+                            <h:inputText value="#{memberController.member.lastName}"  id="txtLastName" >
+                            </h:inputText>
+
+                            <h:message id="lastNameError" for="txtLastName" style="color: red"/> 
+                            <br/>
+
+                            <h:outputText value="email" id="email"/>
+                            <h:inputText value="#{memberController.member.email}"  id="txtEmail"/><br/>
+
+                            <h:outputText value="Current Address"/> <br/>
+
+                            <h:outputText value="City" id="city"/>
+                            <h:inputText value="#{memberController.member.city}" id="txtCity"/><br/>
+
+                            <h:outputText value="Street Address" id="street"/>
+                            <h:inputText value="#{memberController.member.street}" id="txtStreet"/><br/>
+
+                            <h:outputText value="State" id="state"/>
+                            <h:inputText value="#{memberController.member.state}" id="txtState"/><br/>
+
+                            <h:outputText value="Zip" id="gender"/>
+                            <h:inputText value="#{memberController.member.gender}" id="txtGender" /> 
+
+                            <h:outputText value="Contact No." id="contactNo"/>
+                            <h:inputText value="#{memberController.member.contactNumber}" id="txtcontactNo"/><br/>
+
+                            <h:outputText value="Date Of Birth" id="dob"/>
+                            <h:inputText value="#{memberController.member.dob}" id="txtdob"/><br/>
+                            
+                            <h:outputText value="Home Address"/> <br/>
+                            <h:outputText value="Home City" id="homeCity"/>
+                            <h:inputText value="#{memberController.member.homeCity}" id="txthomeCity"/><br/>
+                            <br/>
+                            <h:commandButton value="Save" action="#{memberController.addMember}"/>
+                        </h:panelGrid>
+
+                    </h:panelGroup>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

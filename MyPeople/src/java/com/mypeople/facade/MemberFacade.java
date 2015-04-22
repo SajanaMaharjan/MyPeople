@@ -12,10 +12,10 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Ashok Subedi
+ * @author sajana
  */
 @Stateless
-public class MemberFacade extends AbstractFacade<Member> {
+public class MemberFacade extends AbstractFacade<Member> implements MemberFacadeLocal {
     @PersistenceContext(unitName = "MyPeoplePU")
     private EntityManager em;
 

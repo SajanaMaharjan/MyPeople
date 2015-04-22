@@ -24,21 +24,21 @@ public class Member implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    private String fName;
-    private String lName;
+    private String userName;
+    private String firstName;
+    private String lastName;
      
-    @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
+//    @Temporal(TemporalType.DATE)
+    private String dob;
     private String street;
     private String city;
     private String state;
-    private String cityHome;
+    private String homeCity;
     private String gender;
     private String contactNumber;
     private String email;
     private String password;
-    private String imageName;
+//    private String imageName;
     
     
     
@@ -51,29 +51,7 @@ public class Member implements Serializable {
         this.id = id;
     }
 
-    public String getfName() {
-        return fName;
-    }
-
-    public void setfName(String fName) {
-        this.fName = fName;
-    }
-
-    public String getlName() {
-        return lName;
-    }
-
-    public void setlName(String lName) {
-        this.lName = lName;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+  
 
     public String getStreet() {
         return street;
@@ -99,14 +77,49 @@ public class Member implements Serializable {
         this.state = state;
     }
 
-    public String getCityHome() {
-        return cityHome;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setCityHome(String cityHome) {
-        this.cityHome = cityHome;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+  
+
+    public String getHomeCity() {
+        return homeCity;
+    }
+
+    public void setHomeCity(String homeCity) {
+        this.homeCity = homeCity;
+    }
+
+   
     public String getGender() {
         return gender;
     }
@@ -139,13 +152,13 @@ public class Member implements Serializable {
         this.password = password;
     }
 
-    public String getImageName() {
-        return imageName;
-    }
-
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
-    }
+//    public String getImageName() {
+//        return imageName;
+//    }
+//
+//    public void setImageName(String imageName) {
+//        this.imageName = imageName;
+//    }
     
 
     @Override

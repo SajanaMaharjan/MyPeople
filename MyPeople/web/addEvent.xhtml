@@ -17,13 +17,13 @@ and open the template in the editor.
             <ui:define name="content">
                 <h:form>
                     <h:outputText value="Event Name "/>
-                    <h:inputText id="txtEventName" value="#{eventsController.eventName}" /><br/>
+                    <h:inputText id="txtEventName" value="#{eventsController.event.eventName}" /><br/>
                     <h:outputText value="Date "/>
-                    <h:inputText id="txtEventDate" value="#{eventsController.eventDate}" /><br/>
+                    <h:inputText id="txtEventDate" value="#{eventsController.event.eventDate}" /><br/>
                     <h:outputText value="Short Description "/>
-                    <h:inputTextarea id="txtEventDesc" rows="5" value="#{eventsController.eventDesc}"/><br/>
+                    <h:inputTextarea id="txtEventDesc" rows="5" value="#{eventsController.event.eventDesc}"/><br/>
                     <h:outputText value="Event Details "/>
-                    <h:inputTextarea id="txtEventDetails" rows="5" value="#{eventsController.eventDetails}"/><br/>                
+                    <h:inputTextarea id="txtEventDetails" rows="5" value="#{eventsController.event.eventDetails}"/><br/>                
                     <h:commandButton value="Add New Event" action="#{eventsController.addEvent()}"/>
                 </h:form>
                 
