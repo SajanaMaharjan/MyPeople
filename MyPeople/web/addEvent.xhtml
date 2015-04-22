@@ -13,15 +13,17 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <ui:composition template="../template/template.xhtml">
+        <ui:composition template="template/template.xhtml">
             <ui:define name="content">
                 <h:form>
                     <h:outputText value="Event Name "/>
                     <h:inputText id="txtEventName" value="#{eventsController.eventName}" /><br/>
-                    <h:outputText value="Event Date "/>
+                    <h:outputText value="Date "/>
                     <h:inputText id="txtEventDate" value="#{eventsController.eventDate}" /><br/>
-                    <h:outputText value="Event Description "/>
+                    <h:outputText value="Short Description "/>
                     <h:inputTextarea id="txtEventDesc" rows="5" value="#{eventsController.eventDesc}"/><br/>
+                    <h:outputText value="Event Details "/>
+                    <h:inputTextarea id="txtEventDetails" rows="5" value="#{eventsController.eventDetails}"/><br/>
                 
                     <h:commandButton value="Add New Event" action="#{eventsController.addEvent()}"/>
                 </h:form>

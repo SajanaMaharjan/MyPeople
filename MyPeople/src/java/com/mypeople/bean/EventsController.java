@@ -17,42 +17,43 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
-import javax.persistence.Temporal;
+//import javax.persistence.Temporal;
 
 /**
  *
  * @author sajana
  */
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class EventsController implements Serializable {
 
     @EJB
     EventsFacadeLocal service;
     private Events newEvent;
     private String eventName;
-    @Temporal(javax.persistence.TemporalType.DATE)
+//    @Temporal(javax.persistence.TemporalType.DATE)
     private String eventDate;
     private String eventDesc;
+    private String eventDetails;
     private List<Events> eventList;
+    
+    
+    @PostConstruct
+    public void initEvents(){
+        eventList = service.findAll();
+    }
 
     public EventsController() {
         service = new EventsFacade();
-        newEvent = new Events();
-        eventList = new ArrayList<>(Arrays.asList(
-                new Events("PU-ERH Tea", "sd", "sadfa"),
-                new Events("PU-ERH Tea", "fsda", "sadfa"),
-                new Events("PU-ERH Tea", "sdf", "sadfa"),
-                new Events("PU-ERH Tea", "ffsd", "sadfa")));
     }
 
-    public void addEvent() {
-        Events newEvent = new Events(eventName, eventDate, eventDesc);
-        eventList.add(newEvent);
+    public String addEvent() {
+        Events newEvent = new Events(eventName, eventDate, eventDesc, eventDetails);
         service.create(newEvent);
+        return "event";
     }
 
     public Events getNewEvent() {
@@ -95,5 +96,14 @@ public class EventsController implements Serializable {
         this.eventDesc = eventDesc;
     }
 
+    public String getEventDetails() {
+        return eventDetails;
+    }
+
+    public void setEventDetails(String eventDetails) {
+        this.eventDetails = eventDetails;
+    }
+
+    
     
 }

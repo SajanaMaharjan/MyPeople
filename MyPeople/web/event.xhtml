@@ -14,7 +14,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <ui:composition template="../template/template.xhtml">
+        <ui:composition template="template/template.xhtml">
             <ui:define name="content">
                 <h:form>
                     <h1> All Events </h1>
@@ -32,12 +32,17 @@ and open the template in the editor.
                             </f:facet>
                             <h:outputText value="#{event.eventDate}"></h:outputText>                                               
                         </h:column>
-
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="Event Description"/>
                             </f:facet>                    
-                            <h:inputText value="#{event.eventDesc}" size="4"></h:inputText> 
+                            <h:outputText value="#{event.eventDesc}" ></h:outputText> 
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Action"/>
+                            </f:facet>                    
+                            <h:outputText value="Edit" />|<h:outputText value="Delete"/> 
                         </h:column>
                     </h:dataTable>
                     <h:button value="Create New Event" outcome="addEvent"/>
