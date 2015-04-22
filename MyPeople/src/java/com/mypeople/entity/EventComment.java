@@ -6,15 +6,23 @@
 package com.mypeople.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author sajana
  */
+@NamedQueries({
+@NamedQuery(name = "getEventComment",query = "select c from EventComment c where c.event.id=:eventId")
+})
 @Entity
 public class EventComment implements Serializable {
 
@@ -23,6 +31,11 @@ public class EventComment implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String comment;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date createdDate;
+    
+    @ManyToOne
+    private Event event;
 
     public Long getId() {
         return id;
@@ -40,6 +53,23 @@ public class EventComment implements Serializable {
         this.comment = comment;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

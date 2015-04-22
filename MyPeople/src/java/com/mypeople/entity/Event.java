@@ -24,8 +24,8 @@ public class Event implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-//     @OneToMany(mappedBy = "Event")
-//    private List<EventComment> comments;
+     @OneToMany(mappedBy = "Event")
+    private List<EventComment> comments;
     
     private String eventName;
 //    @Temporal(javax.persistence.TemporalType.DATE)

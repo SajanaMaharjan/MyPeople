@@ -29,9 +29,22 @@ and open the template in the editor.
                     <h:outputText id="txtEventDetails"  value="#{eventsController.event.eventDetails}"/><br/><br/>    
                 </h:form>
 
+                <h4>Comments By users</h4>
+                <table>
+                    <ui:repeat value="#{eventsController.commentList}" var="comment">
+                        <tr>
+                            <td style="color: teal;"><b>#{comment.comment}</b></td>
+                            <td><h:outputText value="#{comment.createdDate}" >
+                                    <f:convertDateTime pattern="MM-dd-yyyy  HH:mm" />
+                                </h:outputText></td>
+                        </tr>
+                    </ui:repeat>
+                </table>
+
+
                 <h:form id="commentForm">
                     <h:outputText value="Add Comments"/><br/><br/>
-                    <h:inputTextarea id="txtEventDetails" rows="5" cols="50" /><br/>  
+                    <h:inputTextarea id="txtEventDetails" rows="5" cols="50" value="#{eventsController.comments.comment}" /><br/>  
 
                     <h:commandButton value="Comment" id="postMessage" type="submit" class="btn btn-primary" action="#{eventsController.postComment}">
                         <f:param value="${eventsController.event.id}" name="eventId"/>
