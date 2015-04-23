@@ -13,17 +13,12 @@
                     <h1><a href="#"><span style="color: red">My</span>People</a></h1>
                 </div>
                 <div class="fl_right">
-                    <ul>
-                        <li class="active"><h:link value="Around Me" outcome="aroundMe"/></li>
-                        <li><h:link value="SignUp" outcome="registration"/></li>
-                        <li><a href="#"><span>Portfolio</span></a></li>
-                        <li><h:link value="Events" outcome="event"/></li>
+                    
 
-                        <li class="last"><h:link value="View Profile" outcome="profile"/></li>
-                        <li class="last"><h:link value="Logout" onclick="#{loginController.logout()}"/></li>
-                    </ul>
+
                     <!--if(!loggedon)-->
-                    <form method='post' action='j_security_check'>
+                    <!--<form method='post' action='j_security_check'>-->
+                    <form>
                         <h:messages layout='table' errorStyle='background: #AFEEEE;'
                                     infoStyle='background: #AFEEEE;' globalOnly='true' />
                         <h:panelGrid columns='5'>
@@ -31,7 +26,7 @@
                             <input type='text' class='form-control' style='margin-left:5px' id='j_username' name='j_username' />
                             <h:outputLabel value='Password ' />
                             <input type='password' class='form-control' style='margin-left:5px' id='j_password' name='j_password' />
-                            <input type='submit' class="btn btn-primary pull-right"  name='submit' value='Login' />                                            
+                            <h:commandButton class="btn btn-primary pull-right"  value='SignIn' action="#{loginController.login}" />                                            
                         </h:panelGrid>
                         <br />
                     </form>

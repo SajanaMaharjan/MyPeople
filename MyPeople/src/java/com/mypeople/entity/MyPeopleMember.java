@@ -41,7 +41,7 @@ public class MyPeopleMember implements Serializable {
     private String contactNumber;
     private String email;
     private String password;
-    private String role="MEMBER";
+//    private String role="MEMBER";
 //    private String conPassword;
 
 //    private String imageName;
@@ -160,13 +160,13 @@ public class MyPeopleMember implements Serializable {
 //        this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
+//    public String getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 
 //    public String getImageName() {
 //        return imageName;

@@ -15,6 +15,9 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:composition template="template/template.xhtml">
+            <ui:insert name ="header">
+                <ui:include src ="/template/header.xhtml"/>
+            </ui:insert>
             <ui:define name="content">
                 <h:form>
                     <h1> All Events </h1>

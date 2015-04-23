@@ -45,7 +45,7 @@
     </login-config>
     
     <!-- Login filter so that we can handle request and response  -->
-<!--    <filter>
+    <filter>
         <filter-name>LoginFilter</filter-name>
         <filter-class>ejb.filters.LoginFilter</filter-class>
     </filter>
@@ -53,7 +53,7 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/aroundMe.faces</url-pattern>
     </filter-mapping>
-    -->
+    
     <!-- System roles -->
    
     <security-role>

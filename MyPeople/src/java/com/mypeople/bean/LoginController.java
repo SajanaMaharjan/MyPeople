@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 @Named(value = "loginController")
 @SessionScoped
 public class LoginController {
-    
+
     private MyPeopleMember member;
 
     /**
@@ -28,28 +28,22 @@ public class LoginController {
      */
     public LoginController() {
     }
-    
+
     public String login() {
-//     request.login();
+        return "aroundMe";
+    }
 
-   
-
-    return "index.jsf?faces-redirect=true";
-}
-    
     public void logout() throws IOException {
         member = null;
-        
+
         HttpServletRequest hsr = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         hsr.getSession().invalidate();
-        
+
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.invalidateSession();
         ec.redirect(ec.getRequestContextPath() + "/index.faces");
-        
-        
+
 //        String result="/index?faces-redirect=true";
-     
 //    FacesContext context = FacesContext.getCurrentInstance();
 //    HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
 //     
@@ -61,7 +55,6 @@ public class LoginController {
 //    }
 //     
 //    return result;
-
     }
-    
+
 }
