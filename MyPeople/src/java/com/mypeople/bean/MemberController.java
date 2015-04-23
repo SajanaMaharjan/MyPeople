@@ -39,8 +39,9 @@ public class MemberController implements Serializable{
         mpMemberFacade = new MyPeopleMemberFacade();
     }
 
-    public void addMember(){
+    public String addMember(){
         mpMemberFacade.create(mpMember);
+        return "aroundMe";
     }
 
     public String updateProfile(){

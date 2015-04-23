@@ -9,12 +9,12 @@
 
     </h:head>
     <h:body>
-        
-      
+
+
         <ui:composition template="template/template2.xhtml">
-                        
+
             <ui:define name="content">
-                
+
                 <div id="companyinfo">
                     <div class="bg_top">
                         <div class="bg_bot clear">
@@ -29,54 +29,54 @@
                                 <br/>
                                 <h:form  class="form-vertical">
                                     <p:panel>
-                                                        <h:panelGrid columns="3" cellpadding="2" >
-                                                            <h:outputLabel for="firstname" value="First Name:" />                    
-                                                            <p:inputText id="firstname" value="#{memberController.mpMember.firstName}" required="true" label="Name"/>
-                                                            <p:message for="firstname" />
-                                                           
-                                                            
-                                                            <h:outputLabel for="lastname" value="Last Name:" />                    
-                                                            <p:inputText id="lastname" value="#{memberController.mpMember.lastName}" required="true" label="Name"/>
-                                                            <p:message for="lastname" />
-                                                           
-                                                            
-                                                            <p:outputLabel for="emailAddress" value="Email Address:" />                    
-                                                            <p:inputText id="emailAddress" value="#{memberController.mpMember.email}" required="true" label="Name">
-                                                             
-                                                                    <f:validator validatorId="validator.EmailValidator"  />
-                                                                </p:inputText>
-                                                             
-                                                            <p:message for="emailAddress" />
-                                                          
-                                                            
-                                                            <p:outputLabel for="password" value="Password:" />                    
-                                                            <p:password  id="password" value="#{memberController.mpMember.password}" match="confirmpassword"  required="true">
-                                                            </p:password>
-                                                            <p:message for="password" />
-                                                                                                                       
-                                                            <p:outputLabel for="confirmpassword" value="Confirm Password:" />
-                                                            <p:password id="confirmpassword" value="#{memberController.mpMember.password}"  required="true" />                            
-                                                            <p:message for="confirmpassword" />
-                                                           
-                                                            <p:outputLabel for="address" value="Address:" />
-                                                            <p:password id="address" value="#{memberController.mpMember.city}"  required="true" />                            
-                                                            <p:message for="address" />
-                                                                                                                       
-                                                            <p:outputLabel for="street" value="Street:" />
-                                                            <p:password id="street" value="#{memberController.mpMember.street}"  required="true" />                            
-                                                            <p:message for="street" />
-                                                            
-                                                             <p:outputLabel for="state" value="State:" />
-                                                             <p:password id="state" value="#{memberController.mpMember.state}"  required="true" />                            
-                                                             <p:message for="state" />
-                                                            
-                                                             <p:outputLabel for="contactNo" value="Contact:" />
-                                                             <p:password id="contactNo" value="#{memberController.mpMember.contactNumber}"  required="true" />                            
-                                                            <p:message for="contactNo" />
-                                                            
-                                                        </h:panelGrid>   
-                                                        <h:commandButton action="#{memberController.addMember}" value="Sign Up" class="btn btn-primary"></h:commandButton> 
-                                                    </p:panel>
+                                        <h:panelGrid columns="3" cellpadding="2" >
+                                            <h:outputLabel for="firstname" value="First Name:" />                    
+                                            <p:inputText id="firstname" value="#{memberController.mpMember.firstName}" required="true" label="Name"/>
+                                            <p:message for="firstname" />
+
+
+                                            <h:outputLabel for="lastname" value="Last Name:" />                    
+                                            <p:inputText id="lastname" value="#{memberController.mpMember.lastName}" required="true" label="Name"/>
+                                            <p:message for="lastname" />
+
+
+                                            <p:outputLabel for="emailAddress" value="Email Address:" />                    
+                                            <p:inputText id="emailAddress" value="#{memberController.mpMember.email}" required="true" label="Name">
+
+                                                <f:validator validatorId="validator.EmailValidator"  />
+                                            </p:inputText>
+
+                                            <p:message for="emailAddress" />
+
+
+                                            <p:outputLabel for="password" value="Password:" />                    
+                                            <p:password  id="password" value="#{memberController.mpMember.password}" match="confirmpassword"  required="true">
+                                            </p:password>
+                                            <p:message for="password" />
+
+                                            <p:outputLabel for="confirmpassword" value="Confirm Password:" />
+                                            <p:password id="confirmpassword" value="#{memberController.mpMember.password}"  required="true" />                            
+                                            <p:message for="confirmpassword" />
+
+                                            <p:outputLabel for="address" value="Address:" />
+                                            <p:inputText id="address" value="#{memberController.mpMember.city}"  required="true" />                            
+                                            <p:message for="address" />
+
+                                            <p:outputLabel for="street" value="Street:" />
+                                            <p:inputText id="street" value="#{memberController.mpMember.street}"  required="true" />                            
+                                            <p:message for="street" />
+
+                                            <p:outputLabel for="state" value="State:" />
+                                            <p:inputText id="state" value="#{memberController.mpMember.state}"  required="true" />                            
+                                            <p:message for="state" />
+
+                                            <p:outputLabel for="contactNo" value="Contact:" />
+                                            <p:inputText id="contactNo" value="#{memberController.mpMember.contactNumber}"  required="true" />                            
+                                            <p:message for="contactNo" />
+
+                                        </h:panelGrid>   
+                                        <h:commandButton action="#{memberController.addMember}" value="Sign Up" class="btn btn-primary"></h:commandButton> 
+                                    </p:panel>
                                 </h:form>
 
                             </div>

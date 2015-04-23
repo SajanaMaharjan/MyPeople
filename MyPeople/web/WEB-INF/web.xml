@@ -25,9 +25,12 @@
   <!-- Protected area definition -->
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>Restricted Area - ADMIN Only</web-resource-name>
-            <url-pattern>/event.faces</url-pattern>
-            <url-pattern>/eventDetails.faces</url-pattern>
+            <web-resource-name>Restricted Area - Member Only</web-resource-name>
+            <url-pattern>/admin.faces</url-pattern>
+<!--            <url-pattern>/event.faces</url-pattern>
+            <url-pattern>/aroundMe.faces</url-pattern>
+            <url-pattern>/profile.faces</url-pattern>
+            <url-pattern>/eventDetails.faces</url-pattern>-->
         </web-resource-collection>
         <auth-constraint>
             <role-name>MEMBER</role-name>
@@ -38,7 +41,7 @@
         <auth-method>FORM</auth-method>
         <realm-name>MyPeopleRealm</realm-name>
         <form-login-config>
-            <form-login-page>/aroundMe.faces</form-login-page>
+            <form-login-page>/index.faces</form-login-page>
             <form-error-page>/error.xhtml</form-error-page>
         </form-login-config>
        

@@ -13,15 +13,15 @@
                     <h1><a href="#"><span style="color: red">My</span>People</a></h1>
                 </div>
                 <div class="fl_right">
-
+                    
                      <ul>
+                         Welcome
+                         <li><h:outputLabel value="#{memberController.mpMember.firstName}" /></li>
                         <li class="active"><h:link value="Around Me" outcome="aroundMe"/></li>
-                        <li><h:link value="SignUp" outcome="registration"/></li>
                         <li><h:link value="Discussion" outcome="discussion"/></li>
                         <li><h:link value="Events" outcome="event"/></li>
-
                         <li class="last"><h:link value="View Profile" outcome="profile"/></li>
-                        <li class="last"><h:link value="Logout" onclick="#{loginController.logout()}"/></li>
+                        <li class="last"><h:link value="Logout"  outcome="index" onclick="#{loginController.logout()}"/></li>
                     </ul>
                     <!--not logged on-->
                 </div>

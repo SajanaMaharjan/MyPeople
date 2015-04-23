@@ -7,7 +7,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -19,17 +20,22 @@ and open the template in the editor.
             </ui:insert>
             <ui:define name="content">
                 <h:form>
-                    <h:outputText value="Event Name "/>
-                    <h:inputText id="txtEventName" value="#{eventsController.event.eventName}" /><br/>
-                    <h:outputText value="Date "/>
-                    <h:inputText id="txtEventDate" value="#{eventsController.event.eventDate}" /><br/>
-                    <h:outputText value="Short Description "/>
-                    <h:inputTextarea id="txtEventDesc" rows="5" value="#{eventsController.event.eventDesc}"/><br/>
-                    <h:outputText value="Event Details "/>
-                    <h:inputTextarea id="txtEventDetails" rows="5" value="#{eventsController.event.eventDetails}"/><br/>                
-                    <h:commandButton value="Add New Event" action="#{eventsController.addEvent()}"/>
+                    <p:panel>
+                        <h:panelGrid columns="3" cellpadding="2" >
+
+                            <h:outputText value="Event Name "/>
+                            <h:inputText id="txtEventName" value="#{eventsController.event.eventName}" /><br/>
+                            <h:outputText value="Date "/>
+                            <h:inputText id="txtEventDate" value="#{eventsController.event.eventDate}" /><br/>
+                            <h:outputText value="Short Description "/>
+                            <h:inputTextarea id="txtEventDesc" rows="5" value="#{eventsController.event.eventDesc}"/><br/>
+                            <h:outputText value="Event Details "/>
+                            <h:inputTextarea id="txtEventDetails" rows="5" value="#{eventsController.event.eventDetails}"/><br/>                
+                            <h:commandButton value="Add New Event" action="#{eventsController.addEvent()}"/>
+                        </h:panelGrid>
+                    </p:panel>
                 </h:form>
-                
+
             </ui:define>
         </ui:composition>
     </h:body>

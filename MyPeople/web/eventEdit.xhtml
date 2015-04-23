@@ -8,8 +8,9 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core">
-     <f:metadata>
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:metadata>
         <f:event listener="#{eventsController.preRenderView(request.getParameter('eventId'))}" type="preRenderView"/>
     </f:metadata>
     <h:head>
@@ -20,15 +21,19 @@ and open the template in the editor.
         <ui:composition template="template/template.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <h:outputText value="Event Name "/>
-                    <h:inputText id="txtEventName" value="#{eventsController.event.eventName}" /><br/>
-                    <h:outputText value="Date "/>
-                    <h:inputText id="txtEventDate" value="#{eventsController.event.eventDate}" /><br/>
-                    <h:outputText value="Short Description "/>
-                    <h:inputTextarea id="txtEventDesc" rows="5" value="#{eventsController.event.eventDesc}"/><br/>
-                    <h:outputText value="Event Details "/>
-                    <h:inputTextarea id="txtEventDetails" rows="5" value="#{eventsController.event.eventDetails}"/><br/>                
-                    <h:commandButton value="Edit Event" id="editEvent" type="submit" action="#{eventsController.updateEvent(eventsController.event)}"/>
+                    <p:panel>
+                        <h:panelGrid columns="3" cellpadding="2" >
+                            <h:outputText value="Event Name "/>
+                            <h:inputText id="txtEventName" value="#{eventsController.event.eventName}" /><br/>
+                            <h:outputText value="Date "/>
+                            <h:inputText id="txtEventDate" value="#{eventsController.event.eventDate}" /><br/>
+                            <h:outputText value="Short Description "/>
+                            <h:inputTextarea id="txtEventDesc" rows="5" value="#{eventsController.event.eventDesc}"/><br/>
+                            <h:outputText value="Event Details "/>
+                            <h:inputTextarea id="txtEventDetails" rows="5" value="#{eventsController.event.eventDetails}"/><br/>                
+                            <h:commandButton value="Edit Event" id="editEvent" type="submit" action="#{eventsController.updateEvent(eventsController.event)}"/>
+                        </h:panelGrid>
+                    </p:panel>
                 </h:form>
             </ui:define>
         </ui:composition>

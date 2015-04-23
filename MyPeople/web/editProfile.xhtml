@@ -13,33 +13,34 @@
 
         <ui:composition template="template/template.xhtml">
             <ui:define name="content">
-                <h:form enctype="multipart/form-data">
-                    <p:growl id="messages" showDetail="true" />
+                <div class="form-group">
+                    <h:form enctype="multipart/form-data">
+                        <p:outputLabel value="Profile Picture"/>
+                        <p:growl id="messages" showDetail="true" />
 
-                    <p:fileUpload value="#{fileUploadView.file}" mode="simple" />
+                        <p:fileUpload value="#{fileUploadView.file}" mode="simple" />
 
-                    <p:commandButton value="Submit"  actionListener="#{fileUploadView.upload}"  />
-                </h:form>
+                        <p:commandButton value="Submit"  actionListener="#{fileUploadView.upload}"  />
+                    </h:form>
+                </div>
                 <h:form  class="form-vertical">
-                    <fieldset>
-                        <div class="well">
+                    <p:panel>
+                        <h:panelGrid columns="3" cellpadding="2" >
+
                             <div class="form-group">
-                                <h:outputLabel value="Full Name"/>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h:inputText value="#{memberController.mpMember.firstName}" required="true" p:placeholder="First Name"   class="form-control " requiredMessage="First Name is Required"></h:inputText>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <h:inputText   value="#{memberController.mpMember.lastName}"  required="true" p:placeholder="Last Name"  requiredMessage="Last Name is Required" class="form-control "></h:inputText >
-                                    </div>
-                                </div>
+                                <p:outputLabel value="First Name"/>
+                                <p:inputText value="#{memberController.mpMember.firstName}" required="true" p:placeholder="First Name"   class="form-control " requiredMessage="First Name is Required"></p:inputText>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel value="Last Name"/>
+                                <p:inputText   value="#{memberController.mpMember.lastName}"  required="true" p:placeholder="Last Name"  requiredMessage="Last Name is Required" class="form-control "></p:inputText >
 
                             </div>
                             <div class="form-group">
                                 <h:outputLabel value='Email Address ' />
-                                <h:inputText value="#{memberController.mpMember.email}" required="true" p:placeholder="Email" class="form-control " requiredMessage="Email is Required">
+                                <p:inputText value="#{memberController.mpMember.email}" required="true" p:placeholder="Email" class="form-control " requiredMessage="Email is Required">
                                     <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-                                </h:inputText>
+                                </p:inputText>
 
                             </div>
                             <div class="form-group">
@@ -56,30 +57,32 @@
                             <div class="form-group">
                             </div>
 
-                            <h:outputLabel value="Address"/> <br/>
+                            Address: <br/>
                             <div class="form-group">
                                 <h:outputLabel value="City" id="city"/>
-                                <h:inputText value="#{memberController.mpMember.city}" id="txtCity"/><br/>
+                                <p:inputText value="#{memberController.mpMember.city}" id="txtCity"/><br/>
                             </div>
                             <div class="form-group">
                                 <h:outputLabel value="Street" id="street"/>
-                                <h:inputText value="#{memberController.mpMember.street}" id="txtStreet"/><br/>
+                                <p:inputText value="#{memberController.mpMember.street}" id="txtStreet"/><br/>
                             </div>
 
                             <div class="form-group">
                                 <h:outputLabel value="State" id="state"/>
-                                <h:inputText value="#{memberController.mpMember.state}" id="txtState"/><br/>
+                                <p:inputText value="#{memberController.mpMember.state}" id="txtState"/><br/>
                             </div>
 
                             <div class="form-group">
                                 <h:outputLabel value="Contact No." id="contactNo"/>
-                                <h:inputText value="#{memberController.mpMember.contactNumber}" id="txtcontactNo"/><br/>
+                                <p:inputText value="#{memberController.mpMember.contactNumber}" id="txtcontactNo"/><br/>
                             </div>
 
-                            <h:commandButton action="#{memberController.addMember}" value="Save" class="btn btn-primary"></h:commandButton>
-                        </div>
-                    </fieldset>
+                            <h:commandButton action="#{memberController.updateProfile}" value="Save" class="btn btn-primary"></h:commandButton>
+
+                        </h:panelGrid>
+                    </p:panel>
                 </h:form>
+
 
 
             </ui:define>
