@@ -6,13 +6,14 @@
 package com.mypeople.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,40 +21,28 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Discussion implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String question;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    
-    private Date creationDate;
     private String topic;
-    
+    private String discussionDesc;
+
+    @OneToMany(mappedBy = "Discussion", fetch = FetchType.EAGER)
+    private List<DiscussionComment> comments;
+
+    public Discussion() {
+        comments = new ArrayList<>();
+
+    }
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public Date getTimeStamp() {
-        return creationDate;
-    }
-
-    public void setTimeStamp(Date creationDate) {
-        this.creationDate = creationDate;
     }
 
     public String getTopic() {
@@ -63,7 +52,28 @@ public class Discussion implements Serializable {
     public void setTopic(String topic) {
         this.topic = topic;
     }
-    
+
+    public String getDiscussionDesc() {
+        return discussionDesc;
+    }
+
+    public void setDiscussionDesc(String discussionDesc) {
+        this.discussionDesc = discussionDesc;
+    }
+
+    public List<DiscussionComment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<DiscussionComment> comments) {
+        this.comments = comments;
+    }
+
+    public void addComments(DiscussionComment c) {
+        comments.add(c);
+        c.setDiscussion(this);
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -88,5 +98,5 @@ public class Discussion implements Serializable {
     public String toString() {
         return "com.mypeople.entity.Discussion[ id=" + id + " ]";
     }
-    
+
 }

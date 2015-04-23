@@ -2,23 +2,34 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>My people: Discussion</title>
     </h:head>
     <h:body>
         <ui:composition template="template/template.xhtml">	
-            <ui:define name="content">	
-                <h:form>
+            <ui:define name="content">
+                      
+                 <h:form id="addDiscussionForm"> 
+                     
+                     <h2>Discussion:</h2>
+                     <h:panelGrid columns="3">
+                     
+                        <p:outputLabel value="Topic"/>
+                      <p:inputText value="#{discussionController.discussion.topic}" id="topic" required="true" requiredMessage="Topic required"></p:inputText>
+                      <p:message for="topic" style="color:red"/>
+                      
+                      <p:outputLabel value="Description"></p:outputLabel>
+                      <p:inputTextarea id="description" rows="3" cols="22" value="#{discussionController.discussion.discussionDesc}" required="true" requiredMessage="Description required"/>    
+                      <p:message for="description" style="color:red"/>
+                   
                   
-                <h3>Discussion Topic</h3> <!-- discussion topic goes here-->
-                
-                 <!-- discusstion question -->
-                <p>Question: <h:outputText value="" /></p>
-              
-                <h:inputTextarea rows="3" value="" />
-                  
-                <h:commandButton value="post" />
+                     </h:panelGrid>
+                      <p><h:commandButton value="Create Discussion"  type="submit" action="#{discussionController.addDiscussion()}">
+                        <f:param value="${discussionController.discussion.id}" name="discussionId"/>
+                       
+                          </h:commandButton> </p>
+                    <h:commandButton value="View Discussion"  action = "discussionDetails" />
                 </h:form>
             </ui:define>
         </ui:composition>

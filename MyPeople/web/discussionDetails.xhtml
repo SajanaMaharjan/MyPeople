@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+    <h:head>
+        <title>My people: Discussion</title>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="template/template.xhtml">
+
+            <ui:define name="content">
+                <h:form id="viewDiscussionForm">   
+                    <h4>Discussion post By users</h4>
+                    
+                    <h:dataTable value="#{discussionController.discussionList}" var="discussion" border="1">
+                        <h:column>
+    				<!-- column header -->
+    				<f:facet name="header">Topic</f:facet>
+    				<!-- row record -->
+    				#{discussion.topic}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Description</f:facet>
+    				#{discussion.discussionDesc}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">View</f:facet>
+                                <h:commandButton value="View Detail" action="#{discussionController.viewDiscussionDetail(discussion.id)}"/> </h:column>
+                    
+                    </h:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
