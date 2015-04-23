@@ -41,7 +41,7 @@ public class MyPeopleMember implements Serializable {
     private String contactNumber;
     private String email;
     private String password;
-    private String role;
+    private String role="MEMBER";
 //    private String conPassword;
 
 //    private String imageName;

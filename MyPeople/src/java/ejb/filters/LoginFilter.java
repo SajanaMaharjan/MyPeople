@@ -53,6 +53,8 @@ public class LoginFilter implements Filter{
         session.setAttribute("userId", userId);
         session.setAttribute("userEmail", request.getRemoteUser().toString());
         
+        System.out.println(session.getAttribute("userId") + "=======>");
+        
         // include the user object itself -- BUT DON'T THINK IT'S A GOOD IDEA!!!
         session.setAttribute("userObj", user.findByEmail(request.getRemoteUser().toString()));
         

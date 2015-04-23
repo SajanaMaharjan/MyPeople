@@ -29,6 +29,14 @@ public class LoginController {
     public LoginController() {
     }
     
+    public String login() {
+//     request.login();
+
+   
+
+    return "index.jsf?faces-redirect=true";
+}
+    
     public void logout() throws IOException {
         member = null;
         
