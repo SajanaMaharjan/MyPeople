@@ -8,7 +8,8 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Around Me</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,44 +17,41 @@ and open the template in the editor.
     <h:body>
         <ui:composition template="template/template.xhtml">
             <ui:define name="content">
-                <h:form>
-                    <h:outputLabel value="People Around Me "/><br/>
-                    <h:dataTable value="#{memberController.mpMemberList}" var="member">
-                       <h:column>
-                        <h:outputLabel value="#{member.firstName} #{member.lastName}"/>
-                       </h:column>
-                        <br/>
-                        <h:column>                            
-                            <h:outputLabel value="#{member.street} #{member.city} #{member.state}"/>
-                        </h:column><br/>
-                        <h:column>
-                            <h:outputLabel value ="${member.email}" />
-                        </h:column>  
-                        <br/>
-                        <h:column>
-                            <h:outputLabel value ="${member.contactNumber}" />
-                        </h:column>
-                    </h:dataTable>
-                    <h:dataTable>
 
-                    </h:dataTable>
+                <h1> <h:outputLabel value="People Around Me "/><br/></h1><br/>
+                <div id="featured">
+                    <div class="bg_top">
+                        <div class="bg_bot clear">
+                            <ui:repeat value="#{memberController.mpMemberList}" var="member">
 
-                    <h:outputLabel value="Recent Events Around Me "/><br/>
-                    <h:dataTable value="#{eventsController.eventList}" var="event">
-                        <h:column>
-                            <h:outputText value="#{event.eventName}"></h:outputText>                                               
-                        </h:column>
-                        <h:column>
-                            <h:outputText value="#{event.eventDate}"></h:outputText>                                               
-                        </h:column>
-                        <h:column>
-                            <h:outputText value ="${event.eventDesc}" />
-                        </h:column>
+                                <div class="holder">
+                                    <p class="center"><img src="resources/images/default_profile.gif" alt="" /></p>
+                                    <p style="color:green; font-size: 18px">#{member.firstName} #{member.lastName}</p>
+                                    <p>#{member.street} #{member.city} #{member.state}</p>
+                                    <p><h:outputLabel value ="${member.email}" /></p>
+                                    <p><h:outputLabel value ="${member.contactNumber}" /></p>      
 
-                    </h:dataTable>
+                                </div>
 
-                    <h:outputLabel value="Food Around Me "/><br/>
-                </h:form>
+                            </ui:repeat>
+                        </div>
+                    </div></div>
+
+                <h:outputLabel value="Recent Events Around Me "/><br/>
+                <h:dataTable value="#{eventsController.eventList}" var="event">
+                    <h:column>
+                        <h:outputText value="#{event.eventName}"></h:outputText>                                               
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{event.eventDate}"></h:outputText>                                               
+                    </h:column>
+                    <h:column>
+                        <h:outputText value ="${event.eventDesc}" />
+                    </h:column>
+                </h:dataTable>
+
+                <h:outputLabel value="Food Around Me "/><br/>
+
 
             </ui:define>
         </ui:composition>

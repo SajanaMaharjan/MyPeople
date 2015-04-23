@@ -43,6 +43,11 @@ public class MemberController implements Serializable{
         mpMemberFacade.create(mpMember);
     }
 
+    public String updateProfile(){
+        return "editProfile";
+        
+    }
+    
     public MyPeopleMember getMpMember() {
         return mpMember;
     }

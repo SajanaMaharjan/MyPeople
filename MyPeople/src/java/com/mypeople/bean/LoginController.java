@@ -37,7 +37,7 @@ public class LoginController {
         
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.invalidateSession();
-        ec.redirect(ec.getRequestContextPath() + "/faces/" + "index.xhtml");
+        ec.redirect(ec.getRequestContextPath() + "/index.faces");
         
         
 //        String result="/index?faces-redirect=true";

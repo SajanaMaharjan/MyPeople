@@ -20,7 +20,6 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>index.faces</welcome-file>
-        <welcome-file>/faces/pages/helloWorld.xhtml</welcome-file>
     </welcome-file-list>
  
   <!-- Protected area definition -->
@@ -37,13 +36,24 @@
     <!-- Login page -->
     <login-config>
         <auth-method>FORM</auth-method>
-        <realm-name>mypeopleRelam</realm-name>
+        <realm-name>MyPeopleRealm</realm-name>
         <form-login-config>
-            <form-login-page>/index.xhtml</form-login-page>
+            <form-login-page>/aroundMe.faces</form-login-page>
             <form-error-page>/error.xhtml</form-error-page>
         </form-login-config>
        
     </login-config>
+    
+    <!-- Login filter so that we can handle request and response  -->
+<!--    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>ejb.filters.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/aroundMe.faces</url-pattern>
+    </filter-mapping>
+    -->
     <!-- System roles -->
    
     <security-role>

@@ -6,6 +6,9 @@
 package com.mypeople.entity;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,12 +41,12 @@ public class MyPeopleMember implements Serializable {
     private String contactNumber;
     private String email;
     private String password;
+    private String role;
 //    private String conPassword;
-    
+
 //    private String imageName;
-    
-    public MyPeopleMember(){
-        
+    public MyPeopleMember() {
+
     }
 
     public Long getId() {
@@ -85,7 +88,6 @@ public class MyPeopleMember implements Serializable {
 //    public void setUserName(String userName) {
 //        this.userName = userName;
 //    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -109,7 +111,6 @@ public class MyPeopleMember implements Serializable {
 //    public void setDob(String dob) {
 //        this.dob = dob;
 //    }
-
 //    public String getHomeCity() {
 //        return homeCity;
 //    }
@@ -125,7 +126,6 @@ public class MyPeopleMember implements Serializable {
 //    public void setGender(String gender) {
 //        this.gender = gender;
 //    }
-
     public String getContactNumber() {
         return contactNumber;
     }
@@ -146,8 +146,26 @@ public class MyPeopleMember implements Serializable {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    /**
+     *
+     * @param password
+     */
+    public void setPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        this.password = digest.digest(password.getBytes("UTF-8")).toString();
+
+        
+//        this.password = org.apache.commons.codec.digest.DigestUtils.sha256Hex(password);
+//        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
 //    public String getImageName() {
@@ -164,7 +182,6 @@ public class MyPeopleMember implements Serializable {
 //    public void setConPassword(String conPassword) {
 //        this.conPassword = conPassword;
 //    }
-
     @Override
     public int hashCode() {
         int hash = 0;

@@ -16,14 +16,12 @@
                     <ul>
                         <li class="active"><h:link value="Around Me" outcome="aroundMe"/></li>
                         <li><h:link value="SignUp" outcome="registration"/></li>
-                        <li><a href="styling.html"><span>Styling</span></a></li>
                         <li><a href="#"><span>Portfolio</span></a></li>
-                        <li><h:link value="events" outcome="event"/></li>
+                        <li><h:link value="Events" outcome="event"/></li>
 
-                        <li class="last"><a href="#"><span>Contact</span></a></li>
+                        <li class="last"><h:link value="View Profile" outcome="profile"/></li>
+                        <li class="last"><h:link value="Logout" onclick="#{loginController.logout()}"/></li>
                     </ul>
-
-
                     <!--if(!loggedon)-->
                     <form method='post' action='j_security_check'>
                         <h:messages layout='table' errorStyle='background: #AFEEEE;'
@@ -41,7 +39,7 @@
                 </div>
             </div>
         </div>
-        
+
     </h:body>
 </html>
 
